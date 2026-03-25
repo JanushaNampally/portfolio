@@ -45,8 +45,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ALLOWED_HOSTS = ['janushanampally-portfolio.onrender.com']
-# Application definition
+ALLOWED_HOSTS = ['janushanampally-portfolio.onrender.com', 'localhost', '127.0.0.1']# Application definition
 ROOT_URLCONF = "portfolio.urls"
 
 TEMPLATES = [
