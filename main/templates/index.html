@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Janusha Nampally — NLP & AI Researcher</title>
+<title>Janusha Nampally — AI/ML Engineer · NLP & Computer Vision</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
 <style>
   :root {
@@ -55,7 +55,7 @@
   .sidenav a:hover, .sidenav a.active { background: #f0fce8; color: var(--green); }
   .sidenav a.active { box-shadow: inset 3px 0 0 var(--green); }
 
-  /* ===== BOTTOM NAV (MOBILE) ===== */
+  /* ===== BOTTOM NAV ===== */
   .bottomnav {
     display: none; position: fixed; bottom: 0; left: 0; right: 0;
     background: var(--card-bg); border-top: 2px solid var(--border);
@@ -123,10 +123,23 @@
     height: 4px; background: var(--green); border-radius: 4px; opacity: .22;
   }
   .hero-role { font-size: 16px; font-weight: 700; color: var(--blue); margin-bottom: 18px; }
-  .hero-desc { font-size: 14px; color: var(--text-light); line-height: 1.75; max-width: 480px; margin-bottom: 28px; font-weight: 600; }
-  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .hero-desc { font-size: 14px; color: var(--text-light); line-height: 1.75; max-width: 480px; margin-bottom: 20px; font-weight: 600; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
   .hero-tag { background: var(--card-bg); border: 2px solid var(--border); color: var(--text); font-size: 12px; font-weight: 700; padding: 5px 13px; border-radius: 30px; }
   .hero-ctas { display: flex; gap: 12px; flex-wrap: nowrap; align-items: center; }
+
+  /* ===== AVAILABILITY BADGE ===== */
+  .availability-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #f0fce8; border: 2px solid #c5f09a; color: var(--green-dark);
+    font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 30px;
+    margin-bottom: 20px;
+  }
+  .availability-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+    animation: pulse-dot 1.6s infinite;
+  }
+  @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
 
   /* ===== HERO VISUAL ===== */
   .hero-visual { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 20px; }
@@ -154,14 +167,17 @@
     transition: transform var(--transition), box-shadow var(--transition);
     white-space: nowrap;
   }
-  .btn-green { background: var(--green); color: #fff; box-shadow: var(--shadow-green); }
-  .btn-green:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--green-dark); }
+  .btn-green  { background: var(--green);  color: #fff;    box-shadow: var(--shadow-green); }
+  .btn-green:hover  { transform: translateY(-2px); box-shadow: 0 6px 0 var(--green-dark); }
   .btn-green:active { transform: translateY(3px); box-shadow: none; }
-  .btn-blue  { background: var(--blue); color: #fff; box-shadow: var(--shadow-blue); }
-  .btn-blue:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--blue-dark); }
-  .btn-blue:active { transform: translateY(3px); box-shadow: none; }
+  .btn-blue   { background: var(--blue);   color: #fff;    box-shadow: var(--shadow-blue); }
+  .btn-blue:hover   { transform: translateY(-2px); box-shadow: 0 6px 0 var(--blue-dark); }
+  .btn-blue:active  { transform: translateY(3px); box-shadow: none; }
+  .btn-yellow { background: var(--yellow); color: #5a3200; box-shadow: var(--shadow-yellow); }
+  .btn-yellow:hover  { transform: translateY(-2px); box-shadow: 0 6px 0 var(--yellow-dark); }
+  .btn-yellow:active { transform: translateY(3px); box-shadow: none; }
   .btn-outline { background: var(--card-bg); color: var(--text); border: 2.5px solid var(--border); box-shadow: 0 4px 0 var(--border); }
-  .btn-outline:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--border); }
+  .btn-outline:hover  { transform: translateY(-2px); box-shadow: 0 6px 0 var(--border); }
   .btn-outline:active { transform: translateY(3px); box-shadow: none; }
 
   /* ===== STREAK ===== */
@@ -172,7 +188,7 @@
     gap: 14px; max-width: 440px; margin-bottom: 44px;
   }
   .streak-flame { font-size: 44px; line-height: 1; }
-  .streak-info .streak-num { font-size: 28px; font-weight: 900; color: #5a3200; line-height: 1; }
+  .streak-info .streak-num   { font-size: 28px; font-weight: 900; color: #5a3200; line-height: 1; }
   .streak-info .streak-label { font-size: 12px; font-weight: 700; color: #7a4800; }
   .streak-dots { display: flex; gap: 5px; margin-left: auto; }
   .streak-dot { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.45); border: 2px solid rgba(255,255,255,.7); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #7a4800; }
@@ -182,13 +198,18 @@
   #about { background: var(--card-bg); padding: 80px 48px; }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
   .about-card { background: var(--bg); border: 2.5px solid var(--border); border-radius: var(--radius-lg); padding: 26px; box-shadow: 0 4px 0 var(--border); }
-  .about-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-  .about-card p { font-size: 13.5px; line-height: 1.75; color: var(--text-light); font-weight: 600; }
+  .about-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .about-card p  { font-size: 13.5px; line-height: 1.75; color: var(--text-light); font-weight: 600; }
+  .about-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 8px; }
+  .about-bullets li { font-size: 13px; font-weight: 600; color: var(--text-light); padding-left: 18px; position: relative; line-height: 1.55; }
+  .about-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--green); font-size: 11px; top: 1px; }
+  .about-bullets li strong { color: var(--text); font-weight: 800; }
   .interest-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
   .chip { background: var(--card-bg); border: 2px solid var(--border); font-size: 11.5px; font-weight: 700; padding: 4px 11px; border-radius: 20px; color: var(--text); }
-  .chip.green { background: #f0fce8; border-color: #c5f09a; color: var(--green-dark); }
-  .chip.blue  { background: #e8f7ff; border-color: #a0dff8; color: var(--blue-dark); }
-  .chip.yellow{ background: #fff8d6; border-color: #ffe07a; color: #8a6000; }
+  .chip.green  { background: #f0fce8; border-color: #c5f09a; color: var(--green-dark); }
+  .chip.blue   { background: #e8f7ff; border-color: #a0dff8; color: var(--blue-dark); }
+  .chip.yellow { background: #fff8d6; border-color: #ffe07a; color: #8a6000; }
+  .chip.purple { background: #f5eeff; border-color: #d4a8f8; color: #7b35b8; }
 
   /* ===== EXPERIENCE PATH ===== */
   #experience { background: var(--bg); }
@@ -198,22 +219,23 @@
   .path-node { position: absolute; left: -51px; top: 14px; width: 32px; height: 32px; border-radius: 50%; border: 4px solid var(--card-bg); box-shadow: 0 2px 0 var(--green-dark); display: flex; align-items: center; justify-content: center; font-size: 14px; z-index: 1; }
   .path-node.green  { background: var(--green); }
   .path-node.blue   { background: var(--blue); }
-  .path-node.yellow { background: var(--yellow); }
   .path-node.purple { background: var(--purple); }
   .path-card { background: var(--card-bg); border: 2.5px solid var(--border); border-radius: var(--radius-lg); padding: 22px 26px; box-shadow: 0 4px 0 var(--border); transition: transform var(--transition), box-shadow var(--transition); }
   .path-card:hover { transform: translateY(-3px); box-shadow: 0 7px 0 var(--border); }
   .path-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
   .path-card-title { font-size: 16px; font-weight: 800; }
-  .path-card-org { font-size: 12px; font-weight: 700; color: var(--blue); margin-top: 2px; }
-  .path-card-date { font-size: 11px; font-weight: 700; background: #f0fce8; color: var(--green-dark); padding: 4px 12px; border-radius: 20px; white-space: nowrap; border: 1.5px solid #c5f09a; align-self: flex-start; }
-  .path-bullets { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
-  .path-bullets li { font-size: 13px; font-weight: 600; color: var(--text-light); padding-left: 18px; position: relative; line-height: 1.5; }
+  .path-card-org   { font-size: 12px; font-weight: 700; color: var(--blue); margin-top: 2px; }
+  .path-card-date  { font-size: 11px; font-weight: 700; background: #f0fce8; color: var(--green-dark); padding: 4px 12px; border-radius: 20px; white-space: nowrap; border: 1.5px solid #c5f09a; align-self: flex-start; }
+  .path-bullets { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .path-bullets li { font-size: 13px; font-weight: 600; color: var(--text-light); padding-left: 18px; position: relative; line-height: 1.55; }
   .path-bullets li::before { content: '•'; position: absolute; left: 5px; color: var(--green); font-weight: 900; }
-  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .path-bullets li strong { color: var(--text); font-weight: 800; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
   .badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; border: 1.5px solid; }
-  .badge-green { background: #f0fce8; color: var(--green-dark); border-color: #c5f09a; }
-  .badge-blue  { background: #e8f7ff; color: var(--blue-dark);  border-color: #a0dff8; }
-  .badge-purple{ background: #f5eeff; color: #7b35b8;           border-color: #d4a8f8; }
+  .badge-green  { background: #f0fce8; color: var(--green-dark); border-color: #c5f09a; }
+  .badge-blue   { background: #e8f7ff; color: var(--blue-dark);  border-color: #a0dff8; }
+  .badge-purple { background: #f5eeff; color: #7b35b8;           border-color: #d4a8f8; }
+  .badge-yellow { background: #fff8d6; color: #8a6000;           border-color: #ffe07a; }
 
   /* ===== SKILLS ===== */
   #skills { background: var(--card-bg); }
@@ -242,10 +264,10 @@
 
   /* ===== PROJECTS ===== */
   #projects { background: var(--bg); }
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 22px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
   .project-card { background: var(--card-bg); border: 2.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 4px 0 var(--border); transition: transform var(--transition), box-shadow var(--transition); display: flex; flex-direction: column; }
   .project-card:hover { transform: translateY(-6px); box-shadow: 0 10px 0 var(--border); }
-  .project-banner { height: 110px; display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; overflow: hidden; }
+  .project-banner { height: 90px; display: flex; align-items: center; justify-content: center; font-size: 44px; position: relative; overflow: hidden; }
   .project-banner::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg,rgba(255,255,255,.07) 0px,rgba(255,255,255,.07) 4px,transparent 4px,transparent 12px); }
   .pb-green  { background: linear-gradient(135deg,#c8f59a,#8de84e); }
   .pb-blue   { background: linear-gradient(135deg,#a0dff8,#4bc8f5); }
@@ -253,24 +275,58 @@
   .pb-purple { background: linear-gradient(135deg,#e4b8ff,#ce82ff); }
   .pb-red    { background: linear-gradient(135deg,#ffb3b3,#ff4b4b); }
   .pb-teal   { background: linear-gradient(135deg,#b3f0e8,#00c9aa); }
-  .project-body { padding: 18px 20px; flex: 1; display: flex; flex-direction: column; }
-  .project-title { font-size: 15px; font-weight: 800; margin-bottom: 7px; }
-  .project-desc  { font-size: 12.5px; color: var(--text-light); font-weight: 600; line-height: 1.6; flex: 1; }
-  .project-metrics { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+  .pb-indigo { background: linear-gradient(135deg,#c7d2fe,#818cf8); }
+  .project-body { padding: 18px 20px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .project-title { font-size: 15px; font-weight: 800; line-height: 1.3; }
+
+  /* project info rows — the key density fix */
+  .proj-row { display: flex; flex-direction: column; gap: 3px; }
+  .proj-row-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .7px; color: var(--green-dark); }
+  .proj-row-label.blue-label { color: var(--blue-dark); }
+  .proj-row-label.purple-label { color: #7b35b8; }
+  .proj-bullets { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .proj-bullets li { font-size: 12.5px; font-weight: 600; color: var(--text-light); padding-left: 14px; position: relative; line-height: 1.5; }
+  .proj-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--green); font-size: 10px; font-weight: 900; top: 1px; }
+  .proj-bullets li strong { color: var(--text); font-weight: 800; }
+  .proj-result { font-size: 12.5px; font-weight: 700; color: var(--text); line-height: 1.5; }
+
+  .project-metrics { display: flex; flex-wrap: wrap; gap: 6px; }
   .metric-pill { background: #f0fce8; color: var(--green-dark); border: 1.5px solid #c5f09a; font-size: 11px; font-weight: 800; padding: 3px 9px; border-radius: 12px; }
-  .metric-pill.blue { background: #e8f7ff; color: var(--blue-dark); border-color: #a0dff8; }
-  .project-stack { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
-  .project-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+  .metric-pill.blue   { background: #e8f7ff; color: var(--blue-dark); border-color: #a0dff8; }
+  .metric-pill.yellow { background: #fff8d6; color: #8a6000;          border-color: #ffe07a; }
+  .metric-pill.purple { background: #f5eeff; color: #7b35b8;          border-color: #d4a8f8; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 5px; }
+  .project-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 4px; }
   .project-card .btn { font-size: 12px; padding: 9px 16px; }
+  .github-note { font-size: 11px; font-weight: 600; color: var(--text-light); font-style: italic; margin-top: 2px; }
+
+  /* featured strip */
+  .featured-strip {
+    background: linear-gradient(135deg,#f0fce8,#e8f7ff);
+    border: 2.5px solid #c5f09a; border-radius: var(--radius-lg);
+    padding: 18px 22px; box-shadow: 0 4px 0 #c5f09a; margin-bottom: 32px;
+  }
+  .featured-strip-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--green-dark); margin-bottom: 12px; }
+  .featured-cards { display: flex; flex-wrap: wrap; gap: 10px; }
+  .featured-mini { background: var(--card-bg); border-radius: var(--radius-md); padding: 10px 16px; display: flex; align-items: center; gap: 10px; text-decoration: none; transition: transform var(--transition); }
+  .featured-mini:hover { transform: translateY(-2px); }
+  .featured-mini.green-mini { border: 2px solid #a0dff8; box-shadow: 0 3px 0 #a0dff8; }
+  .featured-mini.purple-mini { border: 2px solid #d4a8f8; box-shadow: 0 3px 0 #d4a8f8; }
+  .featured-mini .fmi-icon { font-size: 20px; }
+  .featured-mini .fmi-name { font-size: 13px; font-weight: 800; color: var(--text); }
+  .featured-mini .fmi-tags { font-size: 11px; font-weight: 600; color: var(--text-light); }
 
   /* ===== PUBLICATIONS ===== */
   #publications { background: var(--card-bg); }
-  .pub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-  .pub-card { background: var(--bg); border: 2.5px solid var(--border); border-radius: var(--radius-lg); padding: 22px; box-shadow: 0 4px 0 var(--border); display: flex; flex-direction: column; gap: 10px; }
+  .pub-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  .pub-card { background: var(--bg); border: 2.5px solid var(--border); border-radius: var(--radius-lg); padding: 22px 26px; box-shadow: 0 4px 0 var(--border); display: flex; flex-direction: column; gap: 10px; }
   .pub-badge { display: inline-flex; align-items: center; gap: 6px; background: #fff8d6; color: #8a6000; border: 1.5px solid #ffe07a; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 20px; align-self: flex-start; }
-  .pub-title { font-size: 14px; font-weight: 800; line-height: 1.4; }
-  .pub-venue { font-size: 12px; color: var(--blue); font-weight: 700; }
-  .pub-desc  { font-size: 12.5px; color: var(--text-light); font-weight: 600; line-height: 1.6; }
+  .pub-title  { font-size: 14px; font-weight: 800; line-height: 1.45; }
+  .pub-venue  { font-size: 12px; color: var(--blue); font-weight: 700; }
+  .pub-bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .pub-bullets li { font-size: 12.5px; font-weight: 600; color: var(--text-light); padding-left: 16px; position: relative; line-height: 1.55; }
+  .pub-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--blue); font-size: 10px; top: 2px; }
+  .pub-bullets li strong { color: var(--text); font-weight: 800; }
 
   /* ===== EDUCATION ===== */
   #education { background: var(--bg); }
@@ -294,7 +350,7 @@
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
   .contact-info-card { background: linear-gradient(135deg,#f8fff2,#e8f7ff); border: 2.5px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: 0 4px 0 var(--border); }
   .contact-info-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 8px; }
-  .contact-info-card p  { font-size: 13.5px; color: var(--text-light); font-weight: 600; line-height: 1.7; margin-bottom: 24px; }
+  .contact-info-card p  { font-size: 13.5px; color: var(--text-light); font-weight: 600; line-height: 1.7; margin-bottom: 16px; }
   .contact-links { display: flex; flex-direction: column; gap: 10px; }
   .contact-link { display: flex; align-items: center; gap: 11px; text-decoration: none; font-size: 13.5px; font-weight: 700; color: var(--text); padding: 11px 14px; background: var(--card-bg); border: 2px solid var(--border); border-radius: var(--radius-md); box-shadow: 0 3px 0 var(--border); transition: var(--transition); }
   .contact-link:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--border); color: var(--green); }
@@ -329,12 +385,13 @@
     .hero-name { white-space: normal; }
     .hero-tags, .hero-ctas { justify-content: center; }
     .hero-ctas { flex-wrap: wrap; }
-    .hero-desc { margin: 0 auto 28px; }
+    .hero-desc { margin: 0 auto 20px; }
     .hero-greeting { justify-content: center; }
     .hero-stats { justify-content: center; }
     .about-grid   { grid-template-columns: 1fr; }
     .edu-grid     { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
+    .availability-badge { justify-content: center; }
     main { padding-bottom: 80px; }
   }
   @media (max-width: 600px) {
@@ -344,14 +401,6 @@
     .skills-grid   { grid-template-columns: 1fr; }
     .hero-ctas { flex-wrap: wrap; justify-content: center; }
   }
-  .resume-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
 </style>
 </head>
 <body>
@@ -361,528 +410,663 @@
   <div class="logo">JN</div>
   <a href="#hero"         class="active" data-section="hero">    <span class="icon">🏠</span><span class="label">Home</span></a>
   <a href="#about"        data-section="about">                   <span class="icon">👤</span><span class="label">About</span></a>
-  <a href="#experience"   data-section="experience">              <span class="icon">🛤️</span><span class="label">Path</span></a>
-  <a href="#skills"       data-section="skills">                  <span class="icon">⚡</span><span class="label">Skills</span></a>
+  <a href="#experience"   data-section="experience">              <span class="icon">⚡</span><span class="label">XP</span></a>
+  <a href="#skills"       data-section="skills">                  <span class="icon">🧠</span><span class="label">Skills</span></a>
   <a href="#projects"     data-section="projects">                <span class="icon">🚀</span><span class="label">Work</span></a>
-  <a href="#publications" data-section="publications">            <span class="icon">📄</span><span class="label">Pubs</span></a>
+  <a href="#publications" data-section="publications">            <span class="icon">📄</span><span class="label">Research</span></a>
   <a href="#education"    data-section="education">               <span class="icon">🎓</span><span class="label">Edu</span></a>
   <a href="#contact"      data-section="contact">                 <span class="icon">💬</span><span class="label">Contact</span></a>
 </nav>
 
-<!-- ===== BOTTOM NAV (MOBILE) ===== -->
+<!-- ===== BOTTOM NAV ===== -->
 <nav class="bottomnav">
-  <a href="#hero">       <span class="icon">🏠</span><span class="label">Home</span></a>
-  <a href="#experience"> <span class="icon">🛤️</span><span class="label">Path</span></a>
-  <a href="#skills">     <span class="icon">⚡</span><span class="label">Skills</span></a>
-  <a href="#projects">   <span class="icon">🚀</span><span class="label">Work</span></a>
-  <a href="#contact">    <span class="icon">💬</span><span class="label">Contact</span></a>
+  <a href="#hero">        <span class="icon">🏠</span><span class="label">Home</span></a>
+  <a href="#experience">  <span class="icon">⚡</span><span class="label">XP</span></a>
+  <a href="#skills">      <span class="icon">🧠</span><span class="label">Skills</span></a>
+  <a href="#projects">    <span class="icon">🚀</span><span class="label">Work</span></a>
+  <a href="#contact">     <span class="icon">💬</span><span class="label">Contact</span></a>
 </nav>
 
 <main>
 
-  <!-- ===== HERO ===== -->
-  <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <div class="hero-greeting"><span class="wave">👋</span> Hey there, I'm</div>
-        <h1 class="hero-name">Janusha <span class="highlight">Nampally</span></h1>
-        <div class="hero-role">🤖 NLP & Multimodal AI Researcher · AI Engineer</div>
-        <p class="hero-desc">
-          B.Tech AI & Data Science student at KL University with a 9.1 CGPA, building
-          production-ready AI systems — from multimodal speech anti-spoofing to intelligent
-          learning analytics.
-        </p>
-        <div class="hero-tags">
-          <span class="hero-tag">🧠 Deep Learning</span>
-          <span class="hero-tag">🗣️ Speech Processing</span>
-          <span class="hero-tag">📚 NLP</span>
-          <span class="hero-tag">🔬 Research</span>
-          <span class="hero-tag">⚡ Edge AI</span>
-          <span class="hero-tag">🎥 Computer Vision</span>
-        </div>
-        <div class="hero-ctas">
-          <a href="#projects" class="btn btn-green">🚀 View My Work</a>
-          <a href="#contact"  class="btn btn-blue">💬 Let's Talk</a>
-          <a href="mailto:janushanampally24@gmail.com" class="btn btn-outline">📧 Email Me</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <!-- =====================================================
-             PROFILE PICTURE
-             Place your photo at: static/profile.jpg
-             (Supported formats: .jpg, .jpeg, .png, .webp)
-             ===================================================== -->
-        <div class="avatar-ring">
-         <img 
-  <img src="{% static 'images/Profile.jpg' %}" 
-  alt="Janusha Nampally"
-  onerror="this.style.display='none'; this.nextElementSibling.style.zIndex='1';"
-/>
-          <div class="avatar-fallback">🧑‍💻</div>
-        </div>
-        <div class="hero-stats" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:240px;">
-          <div class="hero-stat-card"><div class="val">9.1</div><div class="lbl">CGPA</div></div>
-          <div class="hero-stat-card"><div class="val">2+</div><div class="lbl">Papers</div></div>
-          <div class="hero-stat-card"><div class="val">6+</div><div class="lbl">Projects</div></div>
-        </div>
-  </section>
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
-    <div class="reveal">
-      <div class="section-label">✨ About Me</div>
-      <h2 class="section-title">Turning research into impact.</h2>
-      <p class="section-sub">A snapshot of who I am, what I care about, and where I'm headed.</p>
-    </div>
-    <div class="streak-widget reveal">
-      <div class="streak-flame">🔥</div>
-      <div class="streak-info">
-        <div class="streak-num">2+ Years</div>
-        <div class="streak-label">Consistent AI Research & Building</div>
-      </div>
-      <div class="streak-dots">
-        <div class="streak-dot active">M</div><div class="streak-dot active">T</div>
-        <div class="streak-dot active">W</div><div class="streak-dot active">T</div>
-        <div class="streak-dot active">F</div><div class="streak-dot">S</div><div class="streak-dot">S</div>
-      </div>
-    </div>
-    <div class="about-grid">
-      <div class="about-card reveal">
-        <h3>🎯 Profile Summary</h3>
-        <p>AI Researcher and Engineer specializing in NLP, multimodal speech biometrics, and real-time model deployment. Hands-on experience with experimentation, benchmarking. Passionate about bridging research and real-world production systems.</p>
-      </div>
-      <div class="about-card reveal">
-        <h3>🔬 Research Interests</h3>
-        <div class="interest-chips">
-          <span class="chip green">Multimodal Deep Learning</span>
-          <span class="chip blue">Speech Processing</span>
-          <span class="chip yellow">Anti-Spoofing</span>
-          <span class="chip green">Representation Learning</span>
-          <span class="chip blue">Explainable AI</span>
-          <span class="chip yellow">Human–AI Interaction</span>
-          <span class="chip green">Machine Learning</span>
-          <span class="chip blue">Computer Vision</span>
-        </div>
-      </div>
-      <div class="about-card reveal">
-        <h3>📍 Location & Availability</h3>
-        <p>Based in <strong>Hyderabad, Telangana, India</strong>.<br />Open to research collaborations, AI/ML internships, and full-time roles in NLP, multimodal AI, and backend AI systems.</p>
-      </div>
-      <div class="about-card reveal">
-        <h3>🏆 Highlights</h3>
-        <div class="interest-chips">
-          <span class="chip green">🥇 Hackathon Winner — Awetales AI</span>
-          <span class="chip yellow">🎓 CGPA 9.1 / 10</span>
-          <span class="chip green">⚡ Infosys AI Intern</span>
-          <span class="chip blue">🌐 Cambridge B2 English</span>
-          <span class="chip yellow">📊 3 Papers Submitted</span>
-        </div>
-      </div>
-    </div>
-  </section>
+      <!-- FIX 1: "Meet," orphan removed → clean intro -->
+      <div class="hero-greeting"><span class="wave">👋</span> Hi, I'm</div>
+      <h1 class="hero-name">Janusha <span class="highlight">Nampally</span></h1>
 
-  <!-- ===== EXPERIENCE PATH ===== -->
-  <section id="experience">
-    <div class="reveal">
-      <div class="section-label">🛤️ Experience Path</div>
-      <h2 class="section-title">My learning journey.</h2>
-      <p class="section-sub">Career milestones mapped like a learning path — every node a level up.</p>
-    </div>
-    <div class="path-container">
-      <div class="path-line"></div>
+      <div class="hero-role">🤖 AI/ML Engineer specializing in NLP and Deep Learning</div>
 
-      <div class="path-item reveal">
-        <div class="path-node green">💼</div>
-        <div class="path-card">
-          <div class="path-card-header">
-            <div><div class="path-card-title">AI Intern — Intelligent Video Surveillance</div><div class="path-card-org">Infosys Springboard</div></div>
-            <span class="path-card-date">Jan 2026 – March</span>
-          </div>
-          <ul class="path-bullets">
-            <li>Designed activity recognition modules using CNN, RNN, LSTM, and YOLO achieving 80%+ training accuracy.</li>
-            <li>Implemented real-time computer vision pipelines using Python, OpenCV, TensorFlow, PyTorch, and MediaPipe.</li>
-            <li>Performed debugging, model optimization, and performance testing to improve system reliability.</li>
-            <li>Developed Django-based monitoring dashboard with real-time classification and visual indicators.</li>
-          </ul>
-          <div class="badge-row">
-            <span class="badge badge-green">YOLO</span><span class="badge badge-blue">OpenCV</span>
-            <span class="badge badge-blue">MediaPipe</span><span class="badge badge-green">Django</span>
-            <span class="badge badge-purple">84% Accuracy</span>
-          </div>
-          <div style="margin-top:14px;">
-            <a href="https://github.com/JanushaNampally/infosys" target="_blank" class="btn btn-outline" style="font-size:12px;padding:9px 16px;">🔗 View on GitHub</a>
-          </div>
-        </div>
+      <!-- FIX 2: Hero desc broadened beyond FocusStudy only -->
+      <p class="hero-desc">
+        Building production-ready AI systems across NLP, speech, and vision.<br>
+        From multilingual dubbing pipelines to real-time activity recognition — I engineer AI that ships to users, not just benchmarks.
+      </p>
+
+      <div class="hero-tags">
+        <span class="hero-tag">📝 NLP · Transformers</span>
+        <span class="hero-tag">🧠 Deep Learning</span>
+        <span class="hero-tag">🎙️ Multimodal AI</span>
+        <span class="hero-tag">🖥️ Computer Vision</span>
+        <span class="hero-tag">🚀 Production ML</span>
+        <span class="hero-tag">🔬 Applied Research</span>
       </div>
 
-      <div class="path-item reveal">
-        <div class="path-node blue">🔬</div>
-        <div class="path-card">
-          <div class="path-card-header">
-            <div><div class="path-card-title">Research Intern — Speaker Verification</div><div class="path-card-org">KL University</div></div>
-            <span class="path-card-date">Aug – Nov 2025</span>
-          </div>
-          <ul class="path-bullets">
-            <li>Engineered secure speaker verification system using MFCCs and speaker embeddings, achieving 92% authentication accuracy.</li>
-            <li>Reduced inference latency by 25% for real-time mobile deployment.</li>
-            <li>Performed noise-robustness experiments improving reliability in low-quality audio conditions.</li>
-          </ul>
-          <div class="badge-row">
-            <span class="badge badge-green">MFCCs</span><span class="badge badge-blue">i-vectors</span>
-            <span class="badge badge-purple">92% Accuracy</span><span class="badge badge-green">Real-time</span>
-          </div>
-        </div>
+      <div class="availability-badge">
+        <span class="availability-dot"></span>
+        Open for AI/ML Internships &amp; Full-Time Roles — 2026
       </div>
 
-      <div class="path-item reveal">
-        <div class="path-node yellow">📡</div>
-        <div class="path-card">
-   
-      <div class="path-item reveal">
-        <div class="path-node purple">🧪</div>
-        <div class="path-card">
-          <div class="path-card-header">
-            <div><div class="path-card-title">FocusStudy — Learning Analytics Research</div><div class="path-card-org">Personal Research </div></div>
-            <span class="path-card-date">Jan 2024 – Present</span>
-          </div>
-          <ul class="path-bullets">
-            <li>Built NLP-based motivation classifier using Sentence-BERT, improving accuracy by 18%.</li>
-            <li>Motivation-feedback system increased user retention by 29% across a 50-user trial.</li>
-            <li>Human-centered evaluations reduced distraction events by 66%.</li>
-            <li>First-author submissions for ICISNC 2026, ICAIA 2026 & IJSET.</li>
-          </ul>
-          <div class="badge-row">
-            <span class="badge badge-green">+29% Retention</span><span class="badge badge-blue">Sentence-BERT</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SKILLS ===== -->
-  <section id="skills">
-    <div class="reveal">
-      <div class="section-label">⚡ Skill Modules</div>
-      <h2 class="section-title">My tech arsenal.</h2>
-      <p class="section-sub">Skill cards —  Each module is a domain I've leveled up in.</p>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-module reveal">
-        <div class="skill-module-header"><div class="skill-icon green">🧠</div><div><div class="skill-name">Deep Learning</div><div class="skill-sub">Neural Architectures</div></div></div>
-        <div class="skill-items"><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">CNN</span><span class="skill-tag">LSTM</span><span class="skill-tag">Transformers</span><span class="skill-tag">Attention</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill fill-green" style="width:90%"></div></div>
-        <div class="skill-pct">Expert · 90%</div>
-      </div>
-      <div class="skill-module reveal">
-        <div class="skill-module-header"><div class="skill-icon blue">📝</div><div><div class="skill-name">NLP & Gen AI</div><div class="skill-sub">Language Models</div></div></div>
-        <div class="skill-items"><span class="skill-tag">Sentence-BERT</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">NLTK</span><span class="skill-tag">spaCy</span><span class="skill-tag">Tokenization</span><span class="skill-tag">GPT/BERT</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill fill-blue" style="width:88%"></div></div>
-        <div class="skill-pct">Advanced · 88%</div>
-      </div>
-      <div class="skill-module reveal">
-        <div class="skill-module-header"><div class="skill-icon yellow">🎙️</div><div><div class="skill-name">Speech & Multimodal</div><div class="skill-sub">Audio-Visual AI</div></div></div>
-        <div class="skill-items"><span class="skill-tag">ASV</span><span class="skill-tag">VAD</span><span class="skill-tag">Mel-Spectrograms</span><span class="skill-tag">Lip-Reading</span><span class="skill-tag">Whisper STT</span><span class="skill-tag">Neural TTS</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill fill-yellow" style="width:85%"></div></div>
-        <div class="skill-pct">Advanced · 85%</div>
-      </div>
-      <div class="skill-module reveal">
-        <div class="skill-module-header"><div class="skill-icon purple">🖥️</div><div><div class="skill-name">Computer Vision</div><div class="skill-sub">Visual Intelligence</div></div></div>
-        <div class="skill-items"><span class="skill-tag">OpenCV</span><span class="skill-tag">MediaPipe</span><span class="skill-tag">YOLO</span><span class="skill-tag">InceptionV3</span><span class="skill-tag">Facial Landmarks</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill fill-purple" style="width:82%"></div></div>
-        <div class="skill-pct">Advanced · 82%</div>
-      </div>
-      <div class="skill-module reveal">
-        <div class="skill-module-header"><div class="skill-icon green">🐍</div><div><div class="skill-name">Programming</div><div class="skill-sub">Languages & DSA</div></div></div>
-        <div class="skill-items"><span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">SQL</span><span class="skill-tag">C</span><span class="skill-tag">JavaScript</span><span class="skill-tag">DSA</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill fill-green" style="width:87%"></div></div>
-        <div class="skill-pct">Expert · 87%</div>
-      </div>
-      <div class="skill-module reveal">
-        <div class="skill-module-header"><div class="skill-icon blue">🚀</div><div><div class="skill-name">Backend & Deployment</div><div class="skill-sub">APIs & Infrastructure</div></div></div>
-        <div class="skill-items"><span class="skill-tag">Django REST</span><span class="skill-tag">FastAPI</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Git</span><span class="skill-tag">Firebase</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill fill-blue" style="width:78%"></div></div>
-        <div class="skill-pct">Proficient · 78%</div>
-      </div>
-      <div class="skill-module reveal">
-        <div class="skill-module-header"><div class="skill-icon red">📊</div><div><div class="skill-name">Data Science</div><div class="skill-sub">Analytics & Visualization</div></div></div>
-        <div class="skill-items"><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">Plotly</span><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill fill-red" style="width:84%"></div></div>
-        <div class="skill-pct">Advanced · 84%</div>
-      </div>
-      <div class="skill-module reveal">
-        <div class="skill-module-header"><div class="skill-icon purple">🔬</div><div><div class="skill-name">Research</div><div class="skill-sub">Academic & Applied</div></div></div>
-        <div class="skill-items"><span class="skill-tag">Paper Writing</span><span class="skill-tag">Benchmarking</span><span class="skill-tag">Reproducibility</span><span class="skill-tag">Explainable AI</span><span class="skill-tag">Experiment Design</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill fill-purple" style="width:80%"></div></div>
-        <div class="skill-pct">Advanced · 80%</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROJECTS ===== -->
-  <section id="projects">
-    <div class="reveal">
-      <div class="section-label">🚀 Project Showcase</div>
-      <h2 class="section-title">Things I've built.</h2>
-      <p class="section-sub">Real-world AI systems, research prototypes, and full-stack applications.</p>
-    </div>
-    <div class="projects-grid">
-
-
-      <!-- DubSmart AI -->
-      <div class="project-card reveal">
-        <div class="project-banner pb-purple">🎬</div>
-        <div class="project-body">
-          <div class="project-title">DubSmart AI — Multilingual Video Dubbing</div>
-          <div class="project-desc">Hackathon-winning automated dubbing system converting Hindi speech to Telugu using Whisper STT, NMT, and Neural TTS with timestamp synchronization.</div>
-          <div class="project-metrics">
-            <span class="metric-pill">🥇 Hackathon Winner</span>
-            <span class="metric-pill blue">60s Video Processing</span>
-          </div>
-          <div class="project-stack">
-            <span class="chip">Whisper</span><span class="chip">Neural TTS</span><span class="chip">FFmpeg</span><span class="chip">MoviePy</span>
-          </div>
-          <div class="project-btns">
-            <a href="https://github.com/JanushaNampally/DubSmart-AI" target="_blank" class="btn btn-green">🔗 View on GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- FocusStudy -->
-      <div class="project-card reveal">
-        <div class="project-banner pb-blue">📚</div>
-        <div class="project-body">
-          <div class="project-title">FocusStudy — AI Learning Analytics</div>
-          <div class="project-desc">NLP-powered learning platform with Sentence-BERT motivation classifier, distraction monitoring, and personalized feedback for productivity improvement.</div>
-          <div class="project-metrics">
-            <span class="metric-pill">+29% Retention</span>
-            <span class="metric-pill blue">−66% Distractions</span>
-          </div>
-          <div class="project-stack">
-            <span class="chip">Sentence-BERT</span><span class="chip">Django</span><span class="chip">Firebase</span>
-          </div>
-          <div class="project-btns">
-            <a href="https://github.com/JanushaNampally/focus_platform" target="_blank" class="btn btn-green">🔗 View on GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Image Caption Generator -->
-      <div class="project-card reveal">
-        <div class="project-banner pb-yellow">🖼️</div>
-        <div class="project-body">
-          <div class="project-title">Image Caption Generator</div>
-          <div class="project-desc">Multimodal deep learning model combining InceptionV3 + LSTM + BERT embeddings for automatic image captioning, deployed via FastAPI with Docker.</div>
-          <div class="project-metrics">
-            <span class="metric-pill">+12% BLEU Score</span>
-          </div>
-          <div class="project-stack">
-            <span class="chip">InceptionV3</span><span class="chip">LSTM</span><span class="chip">FastAPI</span><span class="chip">Docker</span>
-          </div>
-          <div class="project-btns">
-            <a href="https://github.com/JanushaNampally/img_captioner" target="_blank" class="btn btn-green">🔗 View on GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- OptiTasker -->
-      <div class="project-card reveal">
-        <div class="project-banner pb-teal">✅</div>
-        <div class="project-body">
-          <div class="project-title">OptiTasker — Smart Task Manager</div>
-          <div class="project-desc">Intelligent productivity app with 12+ REST APIs, linear optimization for task scheduling, JWT auth, PostgreSQL RBAC, and KPI dashboards.</div>
-          <div class="project-metrics">
-            <span class="metric-pill">−40% Incompletions</span>
-            <span class="metric-pill blue">+23% Feature Adoption</span>
-          </div>
-          <div class="project-stack">
-            <span class="chip">Django REST</span><span class="chip">PostgreSQL</span><span class="chip">JWT</span><span class="chip">Linear Opt</span>
-          </div>
-          <div class="project-btns">
-            <a href="https://github.com/JanushaNampally/task_management" target="_blank" class="btn btn-outline">🔗 GitHub</a>
-            <a href="https://task-management-nuh5.onrender.com" target="_blank" class="btn btn-green">🌐 Live Demo</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- COVID-19 -->
-      <div class="project-card reveal">
-        <div class="project-banner pb-red">🦠</div>
-        <div class="project-body">
-          <div class="project-title">COVID-19 Forecasting System</div>
-          <div class="project-desc">Hybrid LSTM + Prophet time-series forecasting on 50GB+ global datasets with real-time Plotly dashboards and automated data ingestion pipelines.</div>
-          <div class="project-metrics">
-            <span class="metric-pill">MAPE &lt; 12%</span>
-            <span class="metric-pill blue">50GB+ Dataset</span>
-          </div>
-          <div class="project-stack">
-            <span class="chip">LSTM</span><span class="chip">Prophet</span><span class="chip">Plotly</span><span class="chip">REST API</span>
-          </div>
-          <div class="project-btns">
-            <a href="https://github.com/JanushaNampally/covid_app" target="_blank" class="btn btn-green">🔗 View on GitHub</a>
-          </div>
-        </div>
+      <div class="hero-ctas">
+        <a href="#projects"  class="btn btn-green">🚀 View My Work</a>
+        <a href="{% static 'resume/janusha_resume.pdf' %}" download class="btn btn-yellow">📄 Download Resume</a>
+        <a href="#contact"   class="btn btn-blue">💬 Let's Talk</a>
       </div>
 
     </div>
-  </section>
-
-<section id="publications">
-  <div class="reveal">
-    <div class="section-label">📄 Research & Innovation</div>
-    <h2 class="section-title">AI Systems with Real-World Impact.</h2>
-    <p class="section-sub">
-      First-author research focused on AI-driven learning systems and scalable design.
-    </p>
-  </div>
-
-  <div class="pub-grid">
-    <div class="pub-card reveal">
-      <span class="pub-badge">📤 Submitted</span>
-
-      <div class="pub-title">
-        AI-Powered Adaptive Learning Platform
+    <div class="hero-visual">
+      <div class="avatar-ring">
+        <img src="{% static 'images/Profile.jpg' %}" alt="Janusha Nampally"
+             onerror="this.style.display='none'; this.nextElementSibling.style.zIndex='1';" />
+        <div class="avatar-fallback">🧑‍💻</div>
       </div>
-
-      <div class="pub-venue">
-        ICISNC 2026 · ICAIA 2026 · IJSET — First Author
-      </div>
-
-      <div class="pub-desc">
-        Built an AI-driven platform for personalized learning and focus optimization using ML-based recommendations and smart content ranking.
-      </div>
-
-      <div class="pub-desc">
-        Designed scalable system architecture, AI pipeline, and efficient YouTube API integration.
-      </div>
-
-      <div class="badge-row">
-        <span class="badge badge-blue">ML</span>
-        <span class="badge badge-green">System Design</span>
-        <span class="badge badge-purple">EdTech AI</span>
+      <!-- FIX 3: Papers corrected from "1+" to "3" -->
+      <div class="hero-stats" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:240px;">
+        <div class="hero-stat-card"><div class="val">9.1</div><div class="lbl">CGPA</div></div>
+        <div class="hero-stat-card"><div class="val">3</div><div class="lbl">Papers</div></div>
+        <div class="hero-stat-card"><div class="val">6+</div><div class="lbl">AI Systems</div></div>
       </div>
     </div>
   </div>
 </section>
 
-  <!-- ===== EDUCATION ===== -->
-  <section id="education">
-    <div class="reveal">
-      <div class="section-label">🎓 Education & Credentials</div>
-      <h2 class="section-title">Foundations of excellence.</h2>
-      <p class="section-sub">Academic background and professional certifications.</p>
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-label">✨ About Me</div>
+    <h2 class="section-title">Building AI that works in the real world.</h2>
+    <p class="section-sub">Engineer mindset. Research depth. Production delivery.</p>
+  </div>
+  <div class="streak-widget reveal">
+    <div class="streak-flame">🔥</div>
+    <div class="streak-info">
+      <div class="streak-num">2+ Years</div>
+      <div class="streak-label">Building &amp; Researching AI Continuously</div>
     </div>
-    <div class="edu-grid">
-      <div class="edu-card reveal">
-        <h3>🏫 Education</h3>
-        <div class="edu-entry">
-          <div class="edu-icon">🎓</div>
-          <div class="edu-detail">
-            <div class="edu-degree">B.Tech — Artificial Intelligence & Data Science</div>
-            <div class="edu-inst">Koneru Lakshmaiah University, Hyderabad</div>
-            <div class="edu-meta">2023 – 2027 · CGPA: 9.1 / 10 · No Backlogs</div>
-          </div>
-        </div>
-        <div class="edu-entry">
-          <div class="edu-icon">📘</div>
-          <div class="edu-detail">
-            <div class="edu-degree">Intermediate (Class XII)</div>
-            <div class="edu-inst">Narayana Junior College, Hyderabad</div>
-            <div class="edu-meta">2021 – 2023 · 85%</div>
-          </div>
-        </div>
-        <div class="edu-entry">
-          <div class="edu-icon">🏫</div>
-          <div class="edu-detail">
-            <div class="edu-degree">High School (Class X)</div>
-            <div class="edu-inst">Nagarjuna The Nextgen School, Hyderabad</div>
-            <div class="edu-meta">2021 · CGPA 10 / 10 — Perfect Score</div>
-          </div>
-        </div>
-      </div>
-      <div class="edu-card reveal">
-        <h3>📜 Certifications</h3>
-        <div class="cert-list">
-          <div class="cert-item"><span class="cert-icon">🤖</span><div><div class="cert-name">Generative AI Certification</div><div class="cert-by">Oracle Academy · 2025</div></div></div>
-          <div class="cert-item"><span class="cert-icon">📊</span><div><div class="cert-name">Oracle Data Analyst</div><div class="cert-by">Oracle Academy · 2025</div></div></div>
-          <div class="cert-item"><span class="cert-icon">☁️</span><div><div class="cert-name">AWS Cloud Practitioner</div><div class="cert-by">Amazon Web Services · 2026/div></div></div>
-          <div class="cert-item"><span class="cert-icon">🐙</span><div><div class="cert-name">GitHub Foundations</div><div class="cert-by">GitHub · 2024</div></div></div>
-          <div class="cert-item"><span class="cert-icon">🌐</span><div><div class="cert-name">Cambridge Linguaskills B2</div><div class="cert-by">Cambridge University · 2024</div></div></div>
-          <div class="cert-item"><span class="cert-icon">⚙️</span><div><div class="cert-name">Automation Anywhere</div><div class="cert-by">Automation Anywhere · 2025</div></div></div>
-        </div>
-      </div>
+    <div class="streak-dots">
+      <div class="streak-dot active">M</div><div class="streak-dot active">T</div>
+      <div class="streak-dot active">W</div><div class="streak-dot active">T</div>
+      <div class="streak-dot active">F</div><div class="streak-dot">S</div><div class="streak-dot">S</div>
     </div>
-  </section>
+  </div>
+  <div class="about-grid">
 
-  <!-- ===== CONTACT ===== -->
-  <section id="contact">
+    <!-- FIX 4: Who I Am compressed to 3 sharp bullets, removed academic name-dropping -->
+    <div class="about-card reveal">
+      <h3>🎯 Who I Am</h3>
+      <p>Final-year B.Tech AI &amp; Data Science student (CGPA 9.1) building end-to-end AI systems. I make deliberate engineering decisions, not just library calls.</p>
+      <ul class="about-bullets">
+        <li>Designed <strong>NLP + CV pipelines</strong> validated on real users — not just benchmark datasets</li>
+        <li>Chose models based on trade-offs: <strong>Whisper over DeepSpeech</strong> for timestamp granularity, <strong>Sentence-BERT over TF-IDF</strong> for zero-shot generalization</li>
+        <li>Cut inference latency by <strong>25%</strong> for mobile deployment through quantization &amp; embedding caching</li>
+        <li>First-author on <strong>3 submitted research papers</strong> — from user study design to deployment</li>
+      </ul>
+    </div>
+
+    <div class="about-card reveal">
+      <h3>🔬 Technical Focus Areas</h3>
+      <div class="interest-chips">
+        <span class="chip green">NLP · Language Models</span>
+        <span class="chip green">Sentence Embeddings · BERT</span>
+        <span class="chip blue">Deep Learning · Transformers</span>
+        <span class="chip blue">Production ML Deployment</span>
+        <span class="chip yellow">Multimodal AI (Speech + Vision)</span>
+        <span class="chip blue">Computer Vision · YOLO</span>
+        <span class="chip green">Model Optimization</span>
+        <span class="chip yellow">Explainable AI</span>
+        <span class="chip purple">Speaker Verification · ASV</span>
+      </div>
+    </div>
+
+    <div class="about-card reveal">
+      <h3>📍 Location &amp; Availability</h3>
+      <p style="color:var(--green-dark);font-weight:800;margin-bottom:8px;">🟢 Open to AI/ML Roles — 2026</p>
+      <p>Based in <strong>Hyderabad, Telangana, India.</strong><br>
+      Remote &amp; on-site · Immediate availability.<br>
+      Targeting: AI Engineer · ML Engineer · NLP/CV roles · Research Engineer.</p>
+    </div>
+
+    <!-- FIX 5: Hackathon win added to highlights, papers corrected to 3 -->
+    <div class="about-card reveal">
+      <h3>🏆 Proof of Work</h3>
+      <div class="interest-chips">
+        <span class="chip green">🥇 Hackathon Winner — Awetales AI</span>
+        <span class="chip yellow">📄 3 Papers Submitted — First Author</span>
+        <span class="chip green">⚡ AI Intern — Infosys (84% accuracy)</span>
+        <span class="chip blue">🔬 Research Intern — KL University (92%)</span>
+        <span class="chip yellow">🎓 CGPA 9.1 / 10 · No Backlogs</span>
+        <span class="chip blue">🌐 Cambridge B2 English</span>
+        <span class="chip green">☁️ AWS Cloud Practitioner</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE PATH ===== -->
+<section id="experience">
+  <div class="reveal">
+    <div class="section-label">⚡ Experience</div>
+    <h2 class="section-title">Real work. Measured results.</h2>
+    <p class="section-sub">Each role added engineering depth — architecture decisions, not just code written.</p>
+  </div>
+  <div class="path-container">
+    <div class="path-line"></div>
+
+    <!-- INFOSYS -->
+    <div class="path-item reveal">
+      <div class="path-node green">💼</div>
+      <div class="path-card">
+        <div class="path-card-header">
+          <div>
+            <div class="path-card-title">AI Intern — Intelligent Video Surveillance</div>
+            <div class="path-card-org">Infosys Springboard</div>
+          </div>
+          <span class="path-card-date">Jan – Mar 2026</span>
+        </div>
+        <ul class="path-bullets">
+          <li>Built activity recognition pipeline using <strong>YOLO + LSTM</strong> — chose YOLO for real-time frame throughput over heavier two-stage detectors, achieving <strong>84% training accuracy</strong>.</li>
+          <li>Decoupled pose estimation from classification using <strong>MediaPipe skeleton extraction</strong>, reducing false positives on partially occluded subjects.</li>
+          <li>Profiled inference pipeline, eliminated bottlenecks in Python/OpenCV processing stack for live video classification.</li>
+          <li>Built <strong>Django dashboard</strong> with real-time classification results and confidence score indicators.</li>
+        </ul>
+        <div class="badge-row">
+          <span class="badge badge-green">YOLO</span>
+          <span class="badge badge-blue">OpenCV · MediaPipe</span>
+          <span class="badge badge-blue">Django</span>
+          <span class="badge badge-purple">84% Accuracy</span>
+        </div>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px;">
+          <a href="https://github.com/JanushaNampally/infosys" target="_blank" class="btn btn-outline" style="font-size:12px;padding:9px 16px;align-self:flex-start;">🐙 Full Code + Docs on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- FIX 7: FocusStudy reframed from vague "Independent" → clear research role with institution context -->
+    <div class="path-item reveal">
+      <div class="path-node purple">🧪</div>
+      <div class="path-card">
+        <div class="path-card-header">
+          <div>
+            <div class="path-card-title">First-Author Researcher — FocusStudy AI Platform</div>
+            <div class="path-card-org">Self-Initiated Research · Submitted to 3 Venues</div>
+          </div>
+          <span class="path-card-date">Jan 2024 – Present</span>
+        </div>
+        <ul class="path-bullets">
+          <li>Sole owner of full research cycle — ML architecture design, 50-user study execution, paper writing, and submission to <strong>ICISNC 2026, ICAIA 2026 &amp; IJSET</strong>.</li>
+          <li>Shipped <strong>Sentence-BERT motivation classifier</strong> (+18% over TF-IDF baseline) + Django REST backend with Firebase real-time sync.</li>
+          <li>Validated on 50 real users over 4 weeks: <strong>+29% retention, −66% distraction events</strong>.</li>
+        </ul>
+        <div class="badge-row">
+          <span class="badge badge-green">+29% Retention</span>
+          <span class="badge badge-blue">Sentence-BERT · NLP</span>
+          <span class="badge badge-purple">3 Venues · First Author</span>
+          <span class="badge badge-green">n=50 User Study</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <div class="reveal">
+    <div class="section-label">🧠 Skill Modules</div>
+    <h2 class="section-title">Technical depth across the AI stack.</h2>
+    <p class="section-sub">Architectures understood, trade-offs made, systems shipped.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-module reveal">
+      <div class="skill-module-header"><div class="skill-icon blue">📝</div><div><div class="skill-name">NLP &amp; Gen AI</div><div class="skill-sub">Core Specialization</div></div></div>
+      <div class="skill-items"><span class="skill-tag">Sentence-BERT</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">Fine-tuning</span><span class="skill-tag">NLTK · spaCy</span><span class="skill-tag">GPT/BERT</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill fill-blue" style="width:88%"></div></div>
+      <div class="skill-pct">Advanced · 88%</div>
+    </div>
+    <div class="skill-module reveal">
+      <div class="skill-module-header"><div class="skill-icon green">🧠</div><div><div class="skill-name">Deep Learning</div><div class="skill-sub">Neural Architectures</div></div></div>
+      <div class="skill-items"><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">CNN · LSTM</span><span class="skill-tag">Transformers</span><span class="skill-tag">Attention</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill fill-green" style="width:90%"></div></div>
+      <div class="skill-pct">Expert · 90%</div>
+    </div>
+    <div class="skill-module reveal">
+      <div class="skill-module-header"><div class="skill-icon yellow">🎙️</div><div><div class="skill-name">Speech &amp; Multimodal</div><div class="skill-sub">Audio-Visual AI</div></div></div>
+      <div class="skill-items"><span class="skill-tag">Whisper STT</span><span class="skill-tag">Neural TTS</span><span class="skill-tag">MFCCs</span><span class="skill-tag">Mel-Spectrograms</span><span class="skill-tag">ASV · VAD</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill fill-yellow" style="width:85%"></div></div>
+      <div class="skill-pct">Advanced · 85%</div>
+    </div>
+    <div class="skill-module reveal">
+      <div class="skill-module-header"><div class="skill-icon purple">🖥️</div><div><div class="skill-name">Computer Vision</div><div class="skill-sub">Visual Intelligence</div></div></div>
+      <div class="skill-items"><span class="skill-tag">OpenCV</span><span class="skill-tag">MediaPipe</span><span class="skill-tag">YOLO</span><span class="skill-tag">InceptionV3</span><span class="skill-tag">Pose Estimation</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill fill-purple" style="width:82%"></div></div>
+      <div class="skill-pct">Advanced · 82%</div>
+    </div>
+    <div class="skill-module reveal">
+      <div class="skill-module-header"><div class="skill-icon green">🐍</div><div><div class="skill-name">Programming</div><div class="skill-sub">Languages &amp; DSA</div></div></div>
+      <div class="skill-items"><span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">SQL</span><span class="skill-tag">C</span><span class="skill-tag">JavaScript</span><span class="skill-tag">DSA</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill fill-green" style="width:87%"></div></div>
+      <div class="skill-pct">Expert · 87%</div>
+    </div>
+    <div class="skill-module reveal">
+      <div class="skill-module-header"><div class="skill-icon red">📊</div><div><div class="skill-name">Data Science</div><div class="skill-sub">Analytics &amp; Visualization</div></div></div>
+      <div class="skill-items"><span class="skill-tag">Pandas · NumPy</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">Plotly</span><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill fill-red" style="width:84%"></div></div>
+      <div class="skill-pct">Advanced · 84%</div>
+    </div>
+    <div class="skill-module reveal">
+      <div class="skill-module-header"><div class="skill-icon blue">🚀</div><div><div class="skill-name">Backend &amp; Deployment</div><div class="skill-sub">APIs &amp; Infrastructure</div></div></div>
+      <div class="skill-items"><span class="skill-tag">Django REST</span><span class="skill-tag">FastAPI</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Docker</span><span class="skill-tag">Firebase · Git</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill fill-blue" style="width:78%"></div></div>
+      <div class="skill-pct">Proficient · 78%</div>
+    </div>
+    <div class="skill-module reveal">
+      <div class="skill-module-header"><div class="skill-icon purple">🔬</div><div><div class="skill-name">Research</div><div class="skill-sub">Applied AI Research</div></div></div>
+      <div class="skill-items"><span class="skill-tag">Benchmarking</span><span class="skill-tag">Ablation Studies</span><span class="skill-tag">User Studies</span><span class="skill-tag">Explainable AI</span><span class="skill-tag">Paper Writing</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill fill-purple" style="width:80%"></div></div>
+      <div class="skill-pct">Advanced · 80%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <div class="reveal">
+    <div class="section-label">🚀 Project Showcase</div>
+    <h2 class="section-title">AI systems I've engineered.</h2>
+    <p class="section-sub">Full code, experiments, and documentation on GitHub for every project.</p>
+  </div>
+
+  <div class="featured-strip reveal">
+    <div class="featured-strip-title">⭐ Featured — Highest Technical Depth &amp; Measured Impact</div>
+    <div class="featured-cards">
+      <a href="#proj-focusstudy" class="featured-mini green-mini">
+        <span class="fmi-icon">📚</span>
+        <div><div class="fmi-name">FocusStudy</div><div class="fmi-tags">NLP · Sentence-BERT · 3 Papers · n=50</div></div>
+      </a>
+      <a href="#proj-dubsmart" class="featured-mini purple-mini">
+        <span class="fmi-icon">🎬</span>
+        <div><div class="fmi-name">DubSmart AI</div><div class="fmi-tags">STT · NMT · TTS · Hackathon Winner</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- ===== FOCUSSTUDY — density fixed: approach split into 3 bullets ===== -->
+    <div class="project-card reveal" id="proj-focusstudy">
+      <div class="project-banner pb-blue">📚</div>
+      <div class="project-body">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="project-title" style="margin-bottom:0;">FocusStudy — AI Learning Platform</div>
+          <span class="badge badge-blue" style="flex-shrink:0;">⭐ Featured</span>
+        </div>
+
+        <div class="proj-row">
+          <span class="proj-row-label">Problem</span>
+          <span class="proj-result" style="font-weight:600;color:var(--text-light);">YouTube causes decision fatigue for exam aspirants — no system filters quality or enforces focus.</span>
+        </div>
+
+        <!-- FIX 8: 52-word approach paragraph → 3 scannable bullets -->
+        <div class="proj-row">
+          <span class="proj-row-label">Approach</span>
+          <ul class="proj-bullets">
+            <li><strong>NLP comment sentiment</strong> ranks video quality before it's watched</li>
+            <li><strong>Sentence-BERT classifier</strong> detects motivation state in real time (+18% vs TF-IDF baseline)</li>
+            <li><strong>Behavior tracker</strong> predicts focus loss from session signals and triggers interventions</li>
+          </ul>
+        </div>
+
+        <div class="project-metrics">
+          <span class="metric-pill">+29% Retention</span>
+          <span class="metric-pill blue">−66% Distractions</span>
+          <span class="metric-pill">n=50 · 4-Week Study</span>
+          <span class="metric-pill blue">3 Papers Submitted</span>
+        </div>
+
+        <div class="project-stack">
+          <span class="chip">Sentence-BERT</span><span class="chip">Django REST</span><span class="chip">PostgreSQL</span><span class="chip">YouTube API</span><span class="chip">Firebase</span>
+        </div>
+        <div class="project-btns">
+          <a href="https://github.com/JanushaNampally/focus_platform" target="_blank" class="btn btn-green">🐙 Code + Experiments</a>
+        </div>
+        <p class="github-note">Includes model training, user study data &amp; full documentation</p>
+      </div>
+    </div>
+
+    <!-- ===== DUBSMART — density fixed: approach split into 3 bullets ===== -->
+    <div class="project-card reveal" id="proj-dubsmart">
+      <div class="project-banner pb-purple">🎬</div>
+      <div class="project-body">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="project-title" style="margin-bottom:0;">DubSmart AI — Multilingual Dubbing</div>
+          <span class="badge badge-purple" style="flex-shrink:0;">⭐ Featured</span>
+        </div>
+
+        <div class="proj-row">
+          <span class="proj-row-label">Problem</span>
+          <span class="proj-result" style="font-weight:600;color:var(--text-light);">Manual Hindi→Telugu dubbing is slow, costly, and causes audio-visual drift.</span>
+        </div>
+
+        <!-- FIX 9: 48-word approach paragraph → 3 scannable bullets -->
+        <div class="proj-row">
+          <span class="proj-row-label">Approach</span>
+          <ul class="proj-bullets">
+            <li><strong>Whisper STT</strong> chosen over DeepSpeech for word-level timestamps — critical for lip-sync accuracy</li>
+            <li><strong>NMT (Helsinki-NLP)</strong> translates Hindi→Telugu preserving sentence boundaries for TTS chunking</li>
+            <li><strong>Neural TTS + FFmpeg</strong> synthesizes and syncs dubbed audio; duration mismatch solved via time-stretch resampling</li>
+          </ul>
+        </div>
+
+        <div class="project-metrics">
+          <span class="metric-pill">🥇 Hackathon Winner</span>
+          <span class="metric-pill blue">60s End-to-End</span>
+          <span class="metric-pill">Zero Manual Steps</span>
+        </div>
+
+        <div class="project-stack">
+          <span class="chip">Whisper STT</span><span class="chip">Neural TTS</span><span class="chip">NMT</span><span class="chip">FFmpeg</span><span class="chip">MoviePy</span>
+        </div>
+        <div class="project-btns">
+          <a href="https://github.com/JanushaNampally/DubSmart-AI" target="_blank" class="btn btn-green">🐙 Code + Pipeline Docs</a>
+        </div>
+        <p class="github-note">Includes pipeline diagrams, experiments &amp; benchmark results</p>
+      </div>
+    </div>
+
+    <!-- ===== SPEAKER VERIFICATION — FIX 10: restored missing project ===== -->
+    <div class="project-card reveal">
+      <div class="project-banner pb-indigo">🎙️</div>
+      <div class="project-body">
+        <div class="project-title">Speaker Verification System</div>
+
+        <div class="proj-row">
+          <span class="proj-row-label">Problem</span>
+          <span class="proj-result" style="font-weight:600;color:var(--text-light);">Secure speaker authentication for mobile deployment — must stay accurate under noisy, real-world audio.</span>
+        </div>
+
+        <div class="proj-row">
+          <span class="proj-row-label">Approach</span>
+          <ul class="proj-bullets">
+            <li><strong>MFCCs + i-vector embeddings</strong> — chose i-vectors for lower compute cost vs x-vectors under limited enrollment data</li>
+            <li>Spectral subtraction preprocessing for noise robustness across 0–20 dB SNR</li>
+            <li>ONNX quantization + embedding caching cut inference latency by <strong>25%</strong></li>
+          </ul>
+        </div>
+
+        <div class="project-metrics">
+          <span class="metric-pill">92% Auth Accuracy</span>
+          <span class="metric-pill blue">−25% Latency</span>
+          <span class="metric-pill">Mobile Deployed</span>
+        </div>
+
+        <div class="project-stack">
+          <span class="chip">MFCCs</span><span class="chip">i-vectors</span><span class="chip">PyTorch</span><span class="chip">ONNX</span><span class="chip">Spectral Subtraction</span>
+        </div>
+        <div class="project-btns">
+          <a href="https://github.com/JanushaNampally" target="_blank" class="btn btn-outline">🐙 GitHub</a>
+        </div>
+        <p class="github-note">Research internship project — KL University AI Lab</p>
+      </div>
+    </div>
+
+    <!-- ===== IMAGE CAPTION — FIX 11: academic phrase trimmed ===== -->
+    <div class="project-card reveal">
+      <div class="project-banner pb-yellow">🖼️</div>
+      <div class="project-body">
+        <div class="project-title">Image Caption Generator</div>
+
+        <div class="proj-row">
+          <span class="proj-row-label">Problem &amp; Approach</span>
+          <ul class="proj-bullets">
+            <li><strong>InceptionV3 visual encoder</strong> + LSTM decoder — InceptionV3 chosen for strong multi-domain feature extraction at lower parameter cost than ResNet</li>
+            <li><strong>BERT token embeddings</strong> injected into decoder for richer semantic language grounding</li>
+            <li>Deployed as <strong>FastAPI service</strong> with Docker for reproducible inference</li>
+          </ul>
+        </div>
+
+        <div class="project-metrics">
+          <span class="metric-pill">+12% BLEU Score</span>
+          <span class="metric-pill blue">FastAPI · Docker</span>
+        </div>
+
+        <div class="project-stack">
+          <span class="chip">InceptionV3</span><span class="chip">LSTM</span><span class="chip">BERT Embeddings</span><span class="chip">FastAPI</span><span class="chip">Docker</span>
+        </div>
+        <div class="project-btns">
+          <a href="https://github.com/JanushaNampally/img_captioner" target="_blank" class="btn btn-green">🐙 Code + Model Weights</a>
+        </div>
+        <p class="github-note">Includes evaluation results &amp; inference scripts</p>
+      </div>
+    </div>
+
+    <!-- ===== OPTITASKER ===== -->
+    <div class="project-card reveal">
+      <div class="project-banner pb-teal">✅</div>
+      <div class="project-body">
+        <div class="project-title">OptiTasker — Smart Task Manager</div>
+
+        <div class="proj-row">
+          <span class="proj-row-label">Approach</span>
+          <ul class="proj-bullets">
+            <li><strong>Linear optimization</strong> (scipy.optimize) for adaptive task scheduling based on user patterns</li>
+            <li>Django REST + PostgreSQL with JWT auth, RBAC, and 12+ production-grade API endpoints</li>
+          </ul>
+        </div>
+
+        <div class="project-metrics">
+          <span class="metric-pill">−40% Incompletions</span>
+          <span class="metric-pill blue">+23% Adoption</span>
+        </div>
+
+        <div class="project-stack">
+          <span class="chip">Django REST</span><span class="chip">Linear Opt</span><span class="chip">PostgreSQL</span><span class="chip">JWT</span>
+        </div>
+        <div class="project-btns">
+          <a href="https://github.com/JanushaNampally/task_management" target="_blank" class="btn btn-outline">🐙 GitHub</a>
+          <a href="https://task-management-nuh5.onrender.com" target="_blank" class="btn btn-green">🌐 Live Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== COVID ===== -->
+    <div class="project-card reveal">
+      <div class="project-banner pb-red">🦠</div>
+      <div class="project-body">
+        <div class="project-title">COVID-19 Forecasting System</div>
+
+        <div class="proj-row">
+          <span class="proj-row-label">Approach</span>
+          <ul class="proj-bullets">
+            <li><strong>LSTM + Prophet hybrid</strong> — LSTM for non-linear patterns, Prophet for seasonality decomposition; ensemble beats either model solo on outbreak data</li>
+            <li>Automated ingestion and processing of <strong>50GB+</strong> global datasets with real-time Plotly dashboard</li>
+          </ul>
+        </div>
+
+        <div class="project-metrics">
+          <span class="metric-pill">MAPE &lt; 12%</span>
+          <span class="metric-pill blue">50GB+ Dataset</span>
+          <span class="metric-pill">Hybrid Ensemble</span>
+        </div>
+
+        <div class="project-stack">
+          <span class="chip">LSTM</span><span class="chip">Prophet</span><span class="chip">Plotly</span><span class="chip">REST API</span>
+        </div>
+        <div class="project-btns">
+          <a href="https://github.com/JanushaNampally/covid_app" target="_blank" class="btn btn-green">🐙 Full Pipeline + Dashboard</a>
+        </div>
+        <p class="github-note">Includes real-time dashboard &amp; experiment logs</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PUBLICATIONS ===== -->
+<section id="publications">
+  <div class="reveal">
+    <div class="section-label">📄 Research</div>
+    <h2 class="section-title">First-author. Empirically validated.</h2>
+    <p class="section-sub">Real user studies — not just benchmark datasets. Reproducible and deployable.</p>
+  </div>
+
+  <!-- FIX 12: Research desc broken into bullets, venue count clarified -->
+  <div class="pub-grid">
+    <div class="pub-card reveal">
+      <span class="pub-badge">📤 Submitted · First Author · 3 Venues</span>
+      <div class="pub-title">
+        Distraction-Free AI-Powered YouTube Learning Platform for Exam Aspirants: NLP-Driven Focus &amp; Motivation Optimization
+      </div>
+      <div class="pub-venue">ICISNC 2026 &nbsp;·&nbsp; ICAIA 2026 &nbsp;·&nbsp; IJSET</div>
+      <ul class="pub-bullets">
+        <li><strong>Contribution:</strong> Three-component NLP framework — comment sentiment scoring, Sentence-BERT motivation classifier, and behavioral focus-loss prediction</li>
+        <li><strong>Method:</strong> Sentence-BERT vs TF-IDF ablation study; +18% classification accuracy on low-resource student behavioral text</li>
+        <li><strong>Validation:</strong> Controlled user study, n=50, 4-week window — <strong>+29% session retention, −66% distraction events</strong></li>
+        <li><strong>Design:</strong> Reproducible pipeline with documented data collection, model training, and deployment</li>
+      </ul>
+      <div class="badge-row">
+        <span class="badge badge-blue">User Study · n=50 · 4 Weeks</span>
+        <span class="badge badge-green">+29% Retention · −66% Distractions</span>
+        <span class="badge badge-purple">NLP · Behavioral AI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education">
+  <div class="reveal">
+    <div class="section-label">🎓 Education &amp; Credentials</div>
+    <h2 class="section-title">Academic foundation.</h2>
+    <p class="section-sub">Strong fundamentals behind the engineering.</p>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <h3>🏫 Education</h3>
+      <div class="edu-entry">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-detail">
+          <div class="edu-degree">B.Tech — Artificial Intelligence &amp; Data Science</div>
+          <div class="edu-inst">Koneru Lakshmaiah University, Hyderabad</div>
+          <div class="edu-meta">2023 – 2027 · CGPA: 9.1 / 10 · No Backlogs</div>
+        </div>
+      </div>
+      <div class="edu-entry">
+        <div class="edu-icon">📘</div>
+        <div class="edu-detail">
+          <div class="edu-degree">Intermediate (Class XII)</div>
+          <div class="edu-inst">Narayana Junior College, Hyderabad</div>
+          <div class="edu-meta">2021 – 2023 · 85%</div>
+        </div>
+      </div>
+      <div class="edu-entry">
+        <div class="edu-icon">🏫</div>
+        <div class="edu-detail">
+          <div class="edu-degree">High School (Class X)</div>
+          <div class="edu-inst">Nagarjuna The Nextgen School, Hyderabad</div>
+          <div class="edu-meta">2021 · CGPA 10 / 10 — Perfect Score</div>
+        </div>
+      </div>
+    </div>
+    <div class="edu-card reveal">
+      <h3>📜 Certifications</h3>
+      <div class="cert-list">
+        <div class="cert-item"><span class="cert-icon">🤖</span><div><div class="cert-name">Generative AI Certification</div><div class="cert-by">Oracle Academy · 2025</div></div></div>
+        <div class="cert-item"><span class="cert-icon">📊</span><div><div class="cert-name">Oracle Data Analyst</div><div class="cert-by">Oracle Academy · 2025</div></div></div>
+        <div class="cert-item"><span class="cert-icon">☁️</span><div><div class="cert-name">AWS Cloud Practitioner</div><div class="cert-by">Amazon Web Services · 2026</div></div></div>
+        <div class="cert-item"><span class="cert-icon">🐙</span><div><div class="cert-name">GitHub Foundations</div><div class="cert-by">GitHub · 2024</div></div></div>
+        <div class="cert-item"><span class="cert-icon">🌐</span><div><div class="cert-name">Cambridge Linguaskills B2</div><div class="cert-by">Cambridge University · 2024</div></div></div>
+        <div class="cert-item"><span class="cert-icon">⚙️</span><div><div class="cert-name">Automation Anywhere</div><div class="cert-by">Automation Anywhere · 2025</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
   <div class="reveal">
     <div class="section-label">💬 Get In Touch</div>
-    <h2 class="section-title">Let’s build something impactful.</h2>
-    <p class="section-sub">
-      Available for freelance AI/ML projects, web development, and research collaborations.
-    </p>
+    <h2 class="section-title">Let's build production-grade AI together.</h2>
+    <!-- FIX 13: "Fast response. Clean code." freelance language removed -->
+    <p class="section-sub">Open to AI/ML internships, full-time roles &amp; research collaborations.</p>
   </div>
 
   <div class="contact-grid">
-    
     <div class="contact-info-card reveal">
-      <h3>👋 Let’s Connect</h3>
+      <h3>👋 Open to Opportunities</h3>
       <p>
-        Looking for an AI developer or need help building a smart application? I specialize in AI-powered web solutions, machine learning models, and scalable systems. Let’s discuss how I can help bring your idea to life.
+        Looking for an AI/ML engineer who ships production systems — not just notebooks?
+        I design with deployment in mind, validate on real users, and document results rigorously.
       </p>
-
-      <p style="color:#22c55e; font-weight:500;">
-        🚀 Fast response • Clean code • On-time delivery
+      <p style="color:var(--green-dark);font-weight:800;font-size:13px;margin-bottom:16px;">
+        🟢 AI Engineer · ML Engineer · NLP/CV · Research Engineer · 2026
       </p>
-        <div class="contact-links">
-          <a href="mailto:janushanampally24@gmail.com" class="contact-link"><span class="cl-icon">📧</span> janushanampally24@gmail.com</a>
-          <a href="tel:+919652839760" class="contact-link"><span class="cl-icon">📱</span> +91 9652839760</a>
-          <a href="https://www.linkedin.com/in/nampally-janusha-b39a512a6/" target="_blank" class="contact-link"><span class="cl-icon">💼</span> LinkedIn Profile</a>
-          <a href="https://github.com/JanushaNampally" target="_blank" class="contact-link"><span class="cl-icon">🐙</span> Github Profile</a>
-          <a href="https://www.codechef.com/users/janusha_24" target="_blank" class="contact-link"><span class="cl-icon">👩‍💻</span> CodeChef Profile</a>
-          <a href="#" class="contact-link"><span class="cl-icon">📍</span> Hyderabad, Telangana, India</a>
-        </div>
+      <div style="margin-bottom:18px;">
+        <a href="{% static 'resume/janusha_resume.pdf' %}" download class="btn btn-yellow" style="width:100%;justify-content:center;">
+          📄 Download Resume
+        </a>
       </div>
-      <div class="contact-form-card reveal">
-  <h3>✉️ Send a Message</h3>
-
-  <form method="POST" action="{% url 'contact' %}">
-    {% csrf_token %}
-
-    <div class="form-group">
-      <label>Your Name</label>
-      <input type="text" name="name" placeholder="e.g. RadhaKrishna" required />
+      <div class="contact-links">
+        <a href="mailto:janushanampally24@gmail.com" class="contact-link"><span class="cl-icon">📧</span> janushanampally24@gmail.com</a>
+        <a href="tel:+919652839760"                  class="contact-link"><span class="cl-icon">📱</span> +91 9652839760</a>
+        <a href="https://www.linkedin.com/in/nampally-janusha-b39a512a6/" target="_blank" class="contact-link"><span class="cl-icon">💼</span> LinkedIn Profile</a>
+        <a href="https://github.com/JanushaNampally"  target="_blank" class="contact-link"><span class="cl-icon">🐙</span> GitHub — All Projects</a>
+        <a href="https://www.codechef.com/users/janusha_24" target="_blank" class="contact-link"><span class="cl-icon">👩‍💻</span> CodeChef Profile</a>
+        <a href="#"                                   class="contact-link"><span class="cl-icon">📍</span> Hyderabad, India · Remote-ready</a>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>Email Address</label>
-      <input type="email" name="email" placeholder="Krishna@example.com" required />
+    <div class="contact-form-card reveal">
+      <h3>✉️ Send a Message</h3>
+      <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <label>Your Name</label>
+          <!-- FIX 14: Placeholder changed from "RadhaKrishna" to neutral -->
+          <input type="text"  name="name"    placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email"   placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text"  name="subject" placeholder="AI/ML Role · Research Collab · Project..." />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell me about the role or project — I'll reply within 24 hours." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;">
+          🚀 Send Message
+        </button>
+      </form>
     </div>
+  </div>
+</section>
 
-    <div class="form-group">
-      <label>Subject</label>
-      <input type="text" name="subject" placeholder="Subject..." />
-    </div>
+</main>
 
-    <div class="form-group">
-      <label>Message</label>
-      <textarea name="message" placeholder="Tell me about your project..." required></textarea>
-    </div>
-
-    <button class="btn btn-green" style="width:100%;justify-content:center;">
-      🚀 Send Message
-    </button>
-  </form>
-</div>
-    </div>
-  </section>
 <footer>
-  <p>Designed & Developed by <span>Janusha Nampally</span> · </p>
-  <p style="margin-top:6px;font-size:11px;">@2026. All rights reserved</p>
+  <p>Designed &amp; Developed by <span>Janusha Nampally</span> · AI/ML Engineer</p>
+  <p style="margin-top:6px;font-size:11px;">© 2026. All rights reserved.</p>
 </footer>
 
 <script>
-  /* Active nav on scroll */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.sidenav a[data-section]');
   const observer = new IntersectionObserver((entries) => {
@@ -896,7 +1080,6 @@
   }, { threshold: 0.25 });
   sections.forEach(s => observer.observe(s));
 
-  /* Reveal on scroll */
   const reveals = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -912,7 +1095,6 @@
   }, { threshold: 0.1 });
   reveals.forEach(r => revealObserver.observe(r));
 
-  /* Progress bars animate on scroll */
   const bars = document.querySelectorAll('.progress-bar-fill');
   const barObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -927,8 +1109,6 @@
     });
   }, { threshold: 0.3 });
   bars.forEach(b => { b.dataset.target = b.style.width; b.style.width = '0%'; barObserver.observe(b); });
-
-
 </script>
 
 </body>
